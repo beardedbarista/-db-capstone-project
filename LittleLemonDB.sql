@@ -108,10 +108,12 @@ CREATE TABLE IF NOT EXISTS `little_lemon_erd`.`Orders` (
   `BookingID` INT NULL,
   `TableNo` INT NULL,
   `EmployeeID` INT NOT NULL,
+  `CustomerID` INT NULL,
   PRIMARY KEY (`OrderID`),
   INDEX `bookingid_fk_idx` (`BookingID` ASC) VISIBLE,
   INDEX `menuif_FK_idx` (`MenuID` ASC) VISIBLE,
   INDEX `employeeid_FK_idx` (`EmployeeID` ASC) VISIBLE,
+  INDEX `cid_fk_idx` (`CustomerID` ASC) VISIBLE,
   CONSTRAINT `bookingid_fk`
     FOREIGN KEY (`BookingID`)
     REFERENCES `little_lemon_erd`.`Booking` (`BookingID`)
@@ -130,6 +132,11 @@ CREATE TABLE IF NOT EXISTS `little_lemon_erd`.`Orders` (
   CONSTRAINT `employeeid_FK`
     FOREIGN KEY (`EmployeeID`)
     REFERENCES `little_lemon_erd`.`Staff` (`EmployeeID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `cid_fk`
+    FOREIGN KEY (`CustomerID`)
+    REFERENCES `little_lemon_erd`.`Customer` (`CustomerID`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
