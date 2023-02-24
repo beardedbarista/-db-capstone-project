@@ -9,3 +9,6 @@ Tableau was used to perform Data Anlaytics on the sales and profits for the busi
 Several worksheets were created that implamented various analytic features to highlight different data points and present them in an unique way.
 Finally an interactive dashboard was created to synchronize two worksheets.
 
+if needed to accesss jupyter notebook or database
+username: root
+password: admin1
